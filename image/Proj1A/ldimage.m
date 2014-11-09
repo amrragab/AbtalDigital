@@ -16,8 +16,8 @@ show_hdft = abs(show_hdft);
 show_hdft = log(show_hdft + 1);
 
 figure(1);
-subplot(2,1,1); imshow(hd);
-subplot(2,1,2); imshow(show_hdft, []);
+subplot(1,2,1); imshow(hd);
+subplot(1,2,2); imshow(show_hdft, []);
 ################
 # operations on first image
 # W is the image will be used in multiplication
@@ -38,11 +38,11 @@ end
 
 Whd =  hdft .* W;
 
-subplot(2,1,1); imshow(  abs( log(Whd+1) ) , [ ] );
+subplot(1,2,1); imshow(  abs( log(Whd+1) ) , [ ] );
 Whd = ifftshift(Whd);
 R = ifft2(Whd);
 
-subplot(2,1,2); imshow(log ( abs( R ) + 1) , []); 
+subplot(1,2,2); imshow(log ( abs( R ) + 1) , []); 
 
 ## on 0.3
 
@@ -61,11 +61,11 @@ end
 
 Whd =  hdft .* W;
 
-subplot(2,1,1); imshow(  log( abs( Whd ) + 1 ) , [ ] );
+subplot(1,2,1); imshow(  log( abs( Whd ) + 1 ) , [ ] );
 Whd = ifftshift(Whd);
 R = ifft2(Whd);
 
-subplot(2,1,2); imshow( log ( abs(R) + 1 ), []); 
+subplot(1,2,2); imshow( log ( abs(R) + 1 ), []); 
 
 ## on 0.5
 
@@ -83,11 +83,11 @@ end
 
 Whd =  hdft .* W;
 
-subplot(2,1,1); imshow(  log( abs( Whd ) + 1 ) , [ ] );
+subplot(1,2,1); imshow(  log( abs( Whd ) + 1 ) , [ ] );
 Whd = ifftshift(Whd);
 R = ifft2(Whd);
 
-subplot(2,1,2); imshow(log(abs( R)+1 ), []); 
+subplot(1,2,2); imshow(log(abs( R)+1 ), []); 
 
 ## on 0.7
 
@@ -105,11 +105,11 @@ end
 
 Whd =  hdft .* W;
 
-subplot(2,1,1); imshow(  log( abs( Whd ) + 1 ) , [ ] );
+subplot(1,2,1); imshow(  log( abs( Whd ) + 1 ) , [ ] );
 Whd = ifftshift(Whd);
 R = ifft2(Whd);
 
-subplot(2,1,2); imshow(log(abs( R) +1), []); 
+subplot(1,2,2); imshow(log(abs( R) +1), []); 
 
 ## on 0.9
 figure(6);
@@ -129,13 +129,13 @@ end
 
 Whd =  hdft .* W;
 
-subplot(2,1,1);
+subplot(1,2,1);
 #subplot(4,5,15); 
 imshow(  log( abs( Whd ) + 1 ) , [ ] );
 Whd = ifftshift(Whd);
 R = ifft2(Whd);
 
-subplot(2,1,2);
+subplot(1,2,2);
 #subplot(4,5,20); 
 imshow(log(abs( R ) +1), []); 
 
