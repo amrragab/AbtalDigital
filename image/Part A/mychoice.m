@@ -36,10 +36,10 @@ for i = floor(x/2 - xrad) : floor(x/2 + xrad)
    end
 end
 
-Whd =  hdft .* W;
+Whd =  fftshift(hdft) .* W;
 
 subplot(2,1,1); imshow(  abs( log(Whd+1) ) , [ ] );
-Whd = ifftshift(Whd);
+#Whd = ifftshift(Whd);
 R = ifft2(Whd);
 
 subplot(2,1,2); imshow(log ( abs( R ) + 1) , []); 
@@ -57,12 +57,10 @@ for i = floor(x/2 - xrad) : floor(x/2 + xrad)
    end
 end
 
-
-
-Whd =  hdft .* W;
+Whd =  fftshift(hdft) .* W;
 
 subplot(2,1,1); imshow(  log( abs( Whd ) + 1 ) , [ ] );
-Whd = ifftshift(Whd);
+#Whd = ifftshift(Whd);
 R = ifft2(Whd);
 
 subplot(2,1,2); imshow( log ( abs(R) + 1 ), []); 
@@ -81,10 +79,10 @@ for i = floor(x/2 - xrad) : floor(x/2 + xrad)
 end
 
 
-Whd =  hdft .* W;
+Whd =  fftshift(hdft) .* W;
 
 subplot(2,1,1); imshow(  log( abs( Whd ) + 1 ) , [ ] );
-Whd = ifftshift(Whd);
+#Whd = ifftshift(Whd);
 R = ifft2(Whd);
 
 subplot(2,1,2); imshow(log(abs( R)+1 ), []); 
@@ -103,10 +101,10 @@ for i = floor(x/2 - xrad) : floor(x/2 + xrad)
 end
 
 
-Whd =  hdft .* W;
+Whd =  fftshift(hdft) .* W;
 
 subplot(2,1,1); imshow(  log( abs( Whd ) + 1 ) , [ ] );
-Whd = ifftshift(Whd);
+#Whd = ifftshift(Whd);
 R = ifft2(Whd);
 
 subplot(2,1,2); imshow(log(abs( R) +1), []); 
@@ -127,12 +125,12 @@ for i = floor(x/2 - xrad) : floor(x/2 + xrad)
 end
 
 
-Whd =  hdft .* W;
+Whd =  fftshift(hdft) .* W;
 
 subplot(2,1,1);
 #subplot(4,5,15); 
 imshow(  log( abs( Whd ) + 1 ) , [ ] );
-Whd = ifftshift(Whd);
+#Whd = ifftshift(Whd);
 R = ifft2(Whd);
 
 subplot(2,1,2);

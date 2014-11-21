@@ -1,8 +1,8 @@
 # read the three images
-hd = imread("highdetail.jpg");
+hd = imread("Low_detail.jpg");
 
 # Transfer images from RGB to gray level
-hd = rgb2gray(hd);
+#hd = rgb2gray(hd);
 
 
 # convert images to double to perform operations
@@ -16,8 +16,8 @@ show_hdft = abs(show_hdft);
 show_hdft = log(show_hdft + 1);
 
 figure(1);
-subplot(1,2,1); imshow(hd);
-subplot(1,2,2); imshow(show_hdft, []);
+subplot(2,1,1); imshow(hd);
+subplot(2,1,2); imshow(show_hdft, []);
 ################
 # operations on first image
 # W is the image will be used in multiplication
@@ -36,13 +36,13 @@ for i = floor(x/2 - xrad) : floor(x/2 + xrad)
    end
 end
 
-Whd =  hdft .* W;
+Whd =  fftshift(hdft) .* W;
 
-subplot(1,2,1); imshow(  abs( log(Whd+1) ) , [ ] );
-Whd = ifftshift(Whd);
+subplot(2,1,1); imshow(  abs( log(Whd+1) ) , [ ] );
+#Whd = ifftshift(Whd);
 R = ifft2(Whd);
 
-subplot(1,2,2); imshow(log ( abs( R ) + 1) , []); 
+subplot(2,1,2); imshow(log ( abs( R ) + 1) , []); 
 
 ## on 0.3
 
@@ -59,13 +59,13 @@ end
 
 
 
-Whd =  hdft .* W;
+Whd =  fftshift(hdft) .* W;
 
-subplot(1,2,1); imshow(  log( abs( Whd ) + 1 ) , [ ] );
-Whd = ifftshift(Whd);
+subplot(2,1,1); imshow(  log( abs( Whd ) + 1 ) , [ ] );
+#Whd = ifftshift(Whd);
 R = ifft2(Whd);
 
-subplot(1,2,2); imshow( log ( abs(R) + 1 ), []); 
+subplot(2,1,2); imshow( log ( abs(R) + 1 ), []); 
 
 ## on 0.5
 
@@ -81,13 +81,13 @@ for i = floor(x/2 - xrad) : floor(x/2 + xrad)
 end
 
 
-Whd =  hdft .* W;
+Whd =  fftshift(hdft) .* W;
 
-subplot(1,2,1); imshow(  log( abs( Whd ) + 1 ) , [ ] );
-Whd = ifftshift(Whd);
+subplot(2,1,1); imshow(  log( abs( Whd ) + 1 ) , [ ] );
+#Whd = ifftshift(Whd);
 R = ifft2(Whd);
 
-subplot(1,2,2); imshow(log(abs( R)+1 ), []); 
+subplot(2,1,2); imshow(log(abs( R)+1 ), []); 
 
 ## on 0.7
 
@@ -103,13 +103,13 @@ for i = floor(x/2 - xrad) : floor(x/2 + xrad)
 end
 
 
-Whd =  hdft .* W;
+Whd =  fftshift(hdft) .* W;
 
-subplot(1,2,1); imshow(  log( abs( Whd ) + 1 ) , [ ] );
-Whd = ifftshift(Whd);
+subplot(2,1,1); imshow(  log( abs( Whd ) + 1 ) , [ ] );
+#Whd = ifftshift(Whd);
 R = ifft2(Whd);
 
-subplot(1,2,2); imshow(log(abs( R) +1), []); 
+subplot(2,1,2); imshow(log(abs( R) +1), []); 
 
 ## on 0.9
 figure(6);
@@ -127,15 +127,15 @@ for i = floor(x/2 - xrad) : floor(x/2 + xrad)
 end
 
 
-Whd =  hdft .* W;
+Whd =  fftshift(hdft) .* W;
 
-subplot(1,2,1);
+subplot(2,1,1);
 #subplot(4,5,15); 
 imshow(  log( abs( Whd ) + 1 ) , [ ] );
-Whd = ifftshift(Whd);
+#Whd = ifftshift(Whd);
 R = ifft2(Whd);
 
-subplot(1,2,2);
+subplot(2,1,2);
 #subplot(4,5,20); 
 imshow(log(abs( R ) +1), []); 
 

@@ -50,7 +50,7 @@ figure(4);
 
 M = ones(11,11);
 M = ( 1 / 11*11 ) * M;
-subplot(1,3,1); imshow(M);
+subplot(1,3,1); imshow(M,[]);
 # im after convlution
 R = imfilter(im, M);
 subplot(1,3,2); imshow(R,[]);
@@ -87,7 +87,7 @@ figure(6);
 
 M = ones(21,21);
 M = ( 1 / 21*21 ) * M;
-subplot(1,3,1); imshow(M);
+subplot(1,3,1); imshow(M,[]);
 # im after convlution
 R = imfilter(im, M);
 subplot(1,3,2); imshow(R,[]);
