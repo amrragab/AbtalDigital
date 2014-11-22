@@ -7,6 +7,7 @@
 #include <inc/string.h>
 #include <inc/stdarg.h>
 #include <inc/error.h>
+#include <inc/csa.h>
 
 /*
  * Space or zero padding and a field width are supported for the numeric
@@ -90,8 +91,10 @@ vprintfmt(void (*putch)(int, void*), void *putdat, const char *fmt, va_list ap)
 
 	while (1) {
 		while ((ch = *(unsigned char *) fmt++) != '%') {
-			if (ch == '\0')
+			if (ch == '\0'){
+				csa = 0x0700; //change color back
 				return;
+			}
 			putch(ch, putdat);
 		}
 
@@ -103,6 +106,11 @@ vprintfmt(void (*putch)(int, void*), void *putdat, const char *fmt, va_list ap)
 		altflag = 0;
 	reswitch:
 		switch (ch = *(unsigned char *) fmt++) {
+
+		case 'm': //change color
+      num = getint(&ap, lflag);
+      csa = num;
+      break;
 
 		// flag to pad on the right
 		case '-':

@@ -10,7 +10,7 @@ readline(const char *prompt)
 	int i, c, echoing;
 
 	if (prompt != NULL)
-		cprintf("%s", prompt);
+		cprintf("%m%s", 0x0400 ,  prompt);
 
 	i = 0;
 	echoing = iscons(0);
