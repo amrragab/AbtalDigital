@@ -116,9 +116,10 @@ monitor(struct Trapframe *tf)
 	cprintf("Welcome to the JOS kernel monitor!\n");
 	cprintf("Type 'help' for a list of commands.\n");
 
+	cprintf("x=%d y=%d", 3);
 
 	while (1) {
-		buf = readline("K> ");
+		buf = readline("AbtalELDigital> ");
 		if (buf != NULL)
 			if (runcmd(buf, tf) < 0)
 				break;
