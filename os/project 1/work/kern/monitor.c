@@ -75,7 +75,7 @@ mon_backtrace(int argc, char **argv, struct Trapframe *tf)
 		int val = debuginfo_eip(*(ebp+1) , &info);
 		// ex : kern/monitor.c:143: monitor+106
 		cprintf("\t%s:%d: %.*s+%d\n",info.eip_file,info.eip_line,info.eip_fn_namelen, info.eip_fn_name,
-      info.eip_fn_addr);
+      *(ebp+1) - info.eip_fn_addr  );
 
 		ebp = ( uint32_t * ) * ebp;
 	}
